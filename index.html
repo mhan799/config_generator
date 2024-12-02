@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Config Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Config Generator</h1>
+    <form id="configForm">
+        <div>
+            <label for="auth_key">Auth Key (App)</label>
+            <input type="text" id="auth_key" name="auth_key" placeholder="Enter auth key" required>
+
+            <label for="serverName">Server Name (App)</label>
+            <input type="text" id="serverName" name="serverName" placeholder="Enter server name" required>
+
+            <label for="studyName">Study Name (App)</label>
+            <input type="text" id="studyName" name="studyName" placeholder="Enter study name" required>
+
+            <label for="studyPI">Study PI (App)</label>
+            <input type="text" id="studyPI" name="studyPI" placeholder="Enter study PI" required>
+
+            <label for="studyPIContact">Study PI Contact(App)</label>
+            <input type="text" id="studyPIContact" name="studyPIContact" placeholder="Enter study PI Contact" required>
+
+            <label for="configRefreshTime">Config Refresh Time (App)</label>
+            <input type="number" id="configRefreshTime" name="configRefreshTime" placeholder="Enter config refresh time" required>
+
+
+            <label><input type="checkbox" id="upload_DATA" name="upload_DATA">Upload Data</label>
+            <label><input type="checkbox" id="require_WIFI_FOR_UPLOAD" name="require_WIFI_FOR_UPLOAD">Require WIFI for Upload</label>
+            <label><input type="checkbox" id="require_CHARGING_FOR_UPLOAD" name="require_CHARGING_FOR_UPLOAD">Require Charging for Upload</label>
+            <label><input type="checkbox" id="enable_HK_DUMP" name="enable_HK_DUMP">Enable HK Dump</label>
+            <label><input type="checkbox" id="enable_LOCATION_UPDATES" name="enable_LOCATION_UPDATES">Enable Location Updates</label>
+            <label><input type="checkbox" id="use_BACKEND_AUTH_KEY" name="use_BACKEND_AUTH_KEY">Use Backend Auth Key</label>
+            <label><input type="checkbox" id="save_LOGS" name="save_LOGS">Save Logs</label>
+            
+            <label for="hb_TIME_TICK">Heartbeat Time Tick (App)</label>
+            <input type="number" id="hb_TIME_TICK" name="hb_TIME_TICK" placeholder="Enter heartbeat tick, e.g. 10">
+
+            <label for="db_DUMP_TIME">Database Dump Time (App)</label>
+            <input type="number" id="db_DUMP_TIME" name="db_DUMP_TIME" placeholder="Enter dump time, e.g. 30">
+
+            <label for="hk_DUMP_INTERVAL">HK Dump Interval (App)</label>
+            <input type="number" id="hk_DUMP_INTERVAL" name="hk_DUMP_INTERVAL" placeholder="Enter dump interval, e.g. 15">
+
+            <label for="max_UPLOAD_INTERVAL">Max Upload Interval (App)</label>
+            <input type="number" id="max_UPLOAD_INTERVAL" name="max_UPLOAD_INTERVAL" placeholder="Enter max upload interval, e.g. 120">
+
+
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="isEmaOn" name="isEmaOn" onchange="toggleEmaFields()">Enable EMA</label>
+                <div id="emaFields" style="display: none;">
+                    <label for="automaticReloadInterval">Automatic Reload Interval (Ema)</label>
+                    <input type="number" id="automaticReloadInterval" name="automaticReloadInterval" placeholder="Enter interval (e.g. 6.0)" required>
+
+                    <label for="blackoutTimes">Blackout Times (Ema)</label>
+                    <input type="text" id="blackoutTimes" name="blackoutTimes" placeholder="Enter blackout times separated by commas, e.g. 20, 40">
+
+                    <label for="repeatingSchedule">Repeating Schedule (Ema)</label>
+                    <input type="text" id="repeatingSchedule" name="repeatingSchedule" placeholder="Enter repeating schedule separated by commas, e.g. 0, 5, 10, 20">
+
+                    <label for="repeatingMessages">Repeating Messages (Ema)</label>
+                    <textarea id="repeatingMessages" name="repeatingMessages" placeholder="Enter messages as a comma-separated list."></textarea>
+
+                    <label for="realTimeRepeatingSchedule">Real Time Repeating Schedule (Ema)</label>
+                    <input type="text" id="realTimeRepeatingSchedule" name="realTimeRepeatingSchedule" placeholder="Enter schedule separated by commas, e.g. 5, 10, 20">
+
+                    <label for="realTimeRepeatingMessages">Real Time Repeating Messages (Ema)</label>
+                    <textarea id="realTimeRepeatingMessages" name="realTimeRepeatingMessages" placeholder="Enter messages as a comma-separated list."></textarea>
+                </div>
+
+                <label><input type="checkbox" id="isDiaryOn" name="isDiaryOn" onchange="toggleDiaryFields()">Enable Diary</label>
+                <div id="diaryFields" style="display: none;">
+                    <label for="dailyDiaryNotification">Daily Diary Notification</label>
+                    <input type="checkbox" id="dailyDiaryNotification" name="dailyDiaryNotification">
+
+                    <label for="dailyDiaryNotificationTime">Daily Diary Notification Time</label>
+                    <input type="text" id="dailyDiaryNotificationTime" name="dailyDiaryNotificationTime" placeholder="Enter time separated by commas, e.g. 20, 30">
+
+                    <label for="dailyDiaryNotificationMessage">Daily Diary Notification Message</label>
+                    <input type="text" id="dailyDiaryNotificationMessage" name="dailyDiaryNotificationMessage" placeholder="Enter message">
+
+                    <label for="dailyDiaryFileSize">Daily Diary File Size</label>
+                    <input type="number" id="dailyDiaryFileSize" name="dailyDiaryFileSize" placeholder="Enter file size, e.g. 100.0">
+
+                    <label for="dailyDiaryDuration">Daily Diary Duration</label>
+                    <input type="number" id="dailyDiaryDuration" name="dailyDiaryDuration" placeholder="Enter duration, e.g. 150.0">
+                </div>
+
+                <label><input type="checkbox" id="isGarminOn" name="isGarminOn" onchange="toggleGarminFields()">Enable Garmin</label>
+                <div id="garminFields" style="display: none;">
+                    <label for="garminBatteryLeftNotification">Garmin Battery Left Notification</label>
+                    <input type="checkbox" id="garminBatteryLeftNotification" name="garminBatteryLeftNotification">
+
+                    <label for="garminBatteryPercentage">Garmin Battery Percentage</label>
+                    <input type="number" id="garminBatteryPercentage" name="garminBatteryPercentage" placeholder="Enter battery percentage, e.g. 20">
+
+                    <label for="garminBatteryNotificationInterval">Garmin Battery Notification Interval</label>
+                    <input type="number" id="garminBatteryNotificationInterval" name="garminBatteryNotificationInterval" placeholder="Enter interval, e.g. 3.0">
+
+                    <label for="collectAcc">Collect Acc</label>
+                    <input type="checkbox" id="collectAcc" name="collectAcc">
+                </div>
+
+                <label><input type="checkbox" id="isAnnouncementsOn" name="isAnnouncementsOn" onchange="toggleAnnouncementsFields()">Enable Announcements</label>
+                <div id="announcementsFields" style="display: none;">
+                    <label for="introChatMessage">Intro Chat Message</label>
+                    <input type="text" id="introChatMessage" name="introChatMessage" placeholder="Enter intro chat message">
+                </div>
+            </div>
+            
+            <button type="button" class="button" onclick="generateConfig()">Generate Config</button>
+            <button type="button" class="button" onclick="downloadConfig()">Download Config</button>
+            <button type="button" class="button" onclick="startOver()">Start Over</button>
+        </div>
+    </form>
+
+    <div id="output" class="output"></div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

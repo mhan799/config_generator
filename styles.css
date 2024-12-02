@@ -1,0 +1,81 @@
+/* Ensure the page can scroll fully */
+html, body {
+    height: 100%; /* Ensure both body and html fill the entire window */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    min-height: 100%; /* Ensure body can expand if content is long */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden; /* Prevent content overflow outside the container */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"], input[type="number"], input[type="checkbox"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.output {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    font-family: monospace;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+}
