@@ -40,7 +40,7 @@ label {
     color: #555;
 }
 
-input[type="text"], input[type="number"], input[type="checkbox"], textarea {
+input[type="text"], input[type="number"], textarea {
     width: 100%;
     padding: 10px;
     margin-top: 5px;

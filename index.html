@@ -51,6 +51,8 @@
             <label for="max_UPLOAD_INTERVAL">Max Upload Interval (App)</label>
             <input type="number" id="max_UPLOAD_INTERVAL" name="max_UPLOAD_INTERVAL" placeholder="Enter max upload interval, e.g. 120">
 
+            <!-- Added "serverUpdateButton" -->
+            <label><input type="checkbox" id="serverUpdateButton" name="serverUpdateButton">Server Update Button</label>
 
             <div class="checkbox-group">
                 <label><input type="checkbox" id="isEmaOn" name="isEmaOn" onchange="toggleEmaFields()">Enable EMA</label>
@@ -105,6 +107,11 @@
 
                     <label for="collectAcc">Collect Acc</label>
                     <input type="checkbox" id="collectAcc" name="collectAcc">
+
+                    <!-- Added "garminNotificationTime" -->
+                    <label for="garminNotificationTime">garminNotificationTime</label>
+                    <input type="number" id="garminNotificationTime" name="garminNotificationTime" placeholder="Enter garmin notification time, e.g. 1 (float in hrs)">
+
                 </div>
 
                 <label><input type="checkbox" id="isAnnouncementsOn" name="isAnnouncementsOn" onchange="toggleAnnouncementsFields()">Enable Announcements</label>

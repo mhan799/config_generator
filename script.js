@@ -53,6 +53,7 @@ function generateConfig() {
             db_DUMP_TIME: parseInt(document.getElementById("db_DUMP_TIME").value),
             hk_DUMP_INTERVAL: parseInt(document.getElementById("hk_DUMP_INTERVAL").value),
             max_UPLOAD_INTERVAL: parseInt(document.getElementById("max_UPLOAD_INTERVAL").value),
+            serverUpdateButton: document.getElementById("serverUpdateButton").checked,
         }
     };
 
@@ -95,6 +96,7 @@ function generateConfig() {
             garminBatteryPercentage: parseInt(document.getElementById("garminBatteryPercentage").value),
             garminBatteryNotificationInterval: parseFloat(document.getElementById("garminBatteryNotificationInterval").value),
             collectAcc: document.getElementById("collectAcc").checked,
+            garminNotificationTime: parseFloat(document.getElementById("garminNotificationTime").value),
         };
     }
 
